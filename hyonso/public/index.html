@@ -27,15 +27,17 @@
                 appId: "1:61987349638:web:41d7cb172782c2662fdd07",
                 measurementId: "G-DC3RLVG1K6"
             };
+
             // Initialize Firebase
             firebase.initializeApp(firebaseConfig);
             firebase.analytics();
             let database = firebase.database();
+
             // firebase에서 읽기
             var demo = document.getElementById("demo");
             var preObject = document.getElementById("object");
             var dbRef = database.ref().child("Event");
-            //dbRef.on('value',snap => demo.innerHTML = snap.val());
+            
             dbRef.on('value',snap => {
                 preObject.innerText = JSON.stringify(snap.val(),null,3);
             });
