@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://www.gstatic.com/firebasejs/7.2/firebase.js"></script>
+    </head>
+    <body>
+        DB 입력 테스트 </br>
+        firebase realtime DB
+        <p id="demo">A Paragraph.</p>
+        행사명: <input type="text" id="name" size="20"> </br>
+        위치: <input type="text" id="where" size="20"> </br>
+        시작날짜(xxxx-xx-xx 형식) <input type="text" id="stdate" size="20"> </br>
+        종료날짜(xxxx-xx-xx 형식) <input type="text" id="eddate" size="20"> </br>
+        주최자: <input type="text" id="who" size="20"> </br>
+        
+        <pre id="object"></pre>
+        <button type="button"onclick="myFunction()">데이터 쓰기</button>
+
+        <script>            //파이어베이스에 등록한 앱에 CDN클릭 후 해당정보 가져와서 삽입
+            const firebaseConfig = {
+                apiKey: "AIzaSyANW9B69OXwB3MuMysbppB6we8uI4l-2XI",
+                authDomain: "runners-5383d.firebaseapp.com",
+                databaseURL: "https://runners-5383d-default-rtdb.firebaseio.com",
+                projectId: "runners-5383d",
+                storageBucket: "runners-5383d.appspot.com",
+                messagingSenderId: "61987349638",
+                appId: "1:61987349638:web:41d7cb172782c2662fdd07",
+                measurementId: "G-DC3RLVG1K6"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+            let database = firebase.database();
+            // firebase에서 읽기
+            var demo = document.getElementById("demo");
+            var preObject = document.getElementById("object");
+            var dbRef = database.ref().child("Event");
+            //dbRef.on('value',snap => demo.innerHTML = snap.val());
+            dbRef.on('value',snap => {
+                preObject.innerText = JSON.stringify(snap.val(),null,3);
+            });
+        </script>
+
+        <script>
+            function myFunction() {
+                document.getElementById("demo").innerHTML = "DB 전송 완료";
+                
+                //firebase에 쓰기
+                database.ref('Event').push({
+                    Name: document.getElementById("name").value,
+                    Where: document.getElementById("where").value,
+                    start_date: document.getElementById("stdate").value,
+                    end_date: document.getElementById("eddate").value,
+                    who: document.getElementById("who").value
+                });
+            }
+        </script>
+    </body>
+</html>
