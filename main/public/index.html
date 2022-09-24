@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="/css/main.css">
 
   <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase.js"></script>
-  <script type="text/javascript" src = "js/deletedata.js"></script>
-  <script type="text/javascript" src = "js/adddata.js"></script>
+  <script type="text/javascript" src = "./js/deletedata.js"></script>
+  <script type="text/javascript" src = "./js/adddata.js"></script>
 
 </head>
 
@@ -31,10 +31,52 @@
   
   <script>init_DB();</script>
   
-  <button type="button"onclick="del();">데이터 읽기</button>
   <button type="button"onclick="push();">데이터 쓰기</button>
+  <button type="button" id = 'aa' onclick="del(this.id)">데이터 삭제</button>
+  <div id="filesubmit">
+    <input type="file" class="file-select" id="file" accept="image/*"/>
+    <button class="file-submit" id = 'submit'">사진 등록</button>
+  </div>
+  
+  <script>var btn = document.getElementById('aa')
+    btn.setAttribute("id", "-NCipCb63aYcRPpn3hfb")</script>
+  <img src=path id = 'aa'>
+  <script>document.addEventListener('DOMContentLoaded', function () {
+    const storageRef = firebase.storage().ref();
+    let selectedFile;
+  
+    // File 선택
+    document.getElementById('file').addEventListener('change', e => {
+        selectedFile = e.target.files[0];
+    });
+  
+    // File 업로드
+    document.getElementById('submit').addEventListener('click', () => {
+        storageRef
+                .child(`images/${selectedFile.name}`)
+                .put(selectedFile)
+                .on('state_changed', snapshot => {
+                                            console.log(snapshot)
+                                        }, error => {
+                                            console.log(error);
+                                        }, () => {
+                                            console.log('성공');
+                                        }
+                );
+    });
+  
 
 
+  
+    const storage = firebase.storage();
+
+storage.ref(`images/${selectedFile.name}`).getDownloadURL()
+  .then((url) => {
+     alert(url)
+     document.getElementById('aa').setAttribute("src", url)
+  })
+});
+  </script>
 
 </body>
 

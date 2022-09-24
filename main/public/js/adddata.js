@@ -1,22 +1,73 @@
-document.write('<script src="js/config.js"></script>');
+document.write('<script src="../js/config.js"></script>');
 
-function initDB(){
-  init_DB();
+function init_DB(){
+  init()
 }
 
-function push() {
+function pushDB(name) {
   let database = firebase.database();
-
-
-  alert("전송 완료");
+  let type
   
-  //firebase에 쓰기
-  database.ref('Event').push({
-      Name: document.getElementById("name").value,
-      Where: document.getElementById("where").value,
-      start_date: document.getElementById("stdate").value,
-      end_date: document.getElementById("eddate").value,
-      who: document.getElementById("who").value
-  });
+  document.getElementsByName('gridRadios').forEach((node) => {
+    if(node.checked)  {
+      type = node.value
+    }
+  })
+
+  const storage = firebase.storage();
+                    
+  setTimeout(()=>{
+
+  storage.ref(`images/`+name).getDownloadURL()
+      .then((Img_Url) => {
+        alert("신청 완료")
+        database.ref('Event').push({
+          InputOrganizer: document.getElementById("inputOrganizer").value,
+          InputEvent: document.getElementById("inputEvent").value,
+          EventType: type,
+          Start_date: document.getElementById("st_date").value,
+          End_date: document.getElementById("ed_date").value,
+          InputAddress: document.getElementById("inputAddress").value,
+          InputName: document.getElementById("inputName").value,
+          InputPhone: document.getElementById("inputPhone").value,
+          InputEmail: document.getElementById("inputEmail").value,
+          ImgUrl: Img_Url
+        });
+  })
+},4000);
 }
 
+function ImgListener(){
+  
+    const storageRef = firebase.storage().ref();
+    let selectedFile;
+    let name;
+  
+    // File 선택
+    document.getElementById('fileup').addEventListener('change', e => {
+        selectedFile = e.target.files[0];
+        name = selectedFile.name
+    });
+  
+    // File 업로드
+    document.getElementById('submit').addEventListener('click', () => {
+        
+        storageRef
+                .child(`images/${selectedFile.name}`)
+                .put(selectedFile)
+                .on('state_changed', snapshot => {
+                                            
+                                        }, error => {
+                                            
+                                        }, () => {
+                                            
+                                        }
+                );
+        pushDB(name)
+    });
+}
+
+function sleep(ms) {
+  const wakeUpTime = Date.now() + ms;
+  while (Date.now() < wakeUpTime) {}
+}
