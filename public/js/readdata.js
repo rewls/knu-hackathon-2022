@@ -27,8 +27,7 @@ function setdata() {
 
 
   let database = firebase.database();
-  var count = 0;
-  const DB = database.ref('Event/').orderByChild("end_date");
+  const DB = database.ref('Event/').orderByChild("End_date");
 
   DB.on('child_added', function(data){
     console.log(data.val())
@@ -38,16 +37,16 @@ function setdata() {
       <li class="col pb-3">
               <a href="https://exco.co.kr/schedule/schedule_view.html?code=P_AGPV56306&ex_cate=1">
                 <div class="card shadow-sm zoom">
-                  <img class="bd-placeholder-img card-img-top" src="${data.val().img}" alt="더골프쇼 in Autumn" width="100%">
+                  <img class="bd-placeholder-img card-img-top" src="${data.val().ImgUrl}" alt="더골프쇼 in Autumn" width="100%">
                   <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group btn-group-sm btn-border-radius-sm" role="group" aria-label="status">
                         <button type="button" class="btn btn-danger" style="--bs-btn-border-radius: .7rem;">진행중</button>
                       </div>
                     </div>
-                    <date class="text-muted">${data.val().start_date} ~ ${data.val().end_date}</date>
-                    <div class="fs-6 text-muted pt-3">${data.val().who}</div>
-                    <p class="card-text fs-5 fw-bold">${data.val().Name}</p>
+                    <date class="text-muted">${data.val().Start_date} ~ ${data.val().End_date}</date>
+                    <div class="fs-6 text-muted pt-3">${data.val().InputOrganizer}</div>
+                    <p class="card-text fs-5 fw-bold">${data.val().InputName}</p>
                   </div>
                 </div>
               </a>
