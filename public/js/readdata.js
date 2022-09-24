@@ -16,19 +16,19 @@ function init_DB(){
   
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
+
 }
 
 
-var database = firebase.database();
 
 function setdata() {
 
   alert("전송 완료");
   
   //firebase에 쓰기
-  var dbTestRef = database.ref('event/')
+  var dbTestRef = firebase.database().ref('Event')
   dbTestRef.on('child_added', function(data){
-    console.log(data.val())
+	console.log(data.val())
   })
 
 }
