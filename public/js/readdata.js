@@ -25,14 +25,16 @@ function setdata() {
 
   //alert("전송 완료");
 
-
+  const item_count = document.getElementById("item-count");
   let database = firebase.database();
   const DB = database.ref('Event/').orderByChild("End_date");
 
+  let count = 0;
   DB.on('child_added', function(data){
     console.log(data.val())
     //alert(JSON.stringify(data.val(), null, 3))
 
+    count++;
       var templete = `
       <li class="item ${data.val().EventType} col pb-3">
               <a href="https://exco.co.kr/schedule/schedule_view.html?code=P_AGPV56306&ex_cate=1">
@@ -54,8 +56,10 @@ function setdata() {
             `;
     $('.col1').before(templete)
 
+  item_count.textContent = count;
 
 })
+
 
 
 
