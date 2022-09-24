@@ -1,6 +1,8 @@
 document.write('<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase.js"></script>');
 
 function init_DB(){
+
+  
   const firebaseConfig = {
     apiKey: "AIzaSyANW9B69OXwB3MuMysbppB6we8uI4l-2XI",
     authDomain: "runners-5383d.firebaseapp.com",
@@ -16,8 +18,17 @@ function init_DB(){
   firebase.analytics();
 }
 
-function myFunction() {
+
+var database = firebase.database();
+
+function setdata() {
 
   alert("전송 완료");
   
+  //firebase에 쓰기
+  var dbTestRef = database.ref('event/')
+  dbTestRef.on('child_added', function(data){
+    console.log(data.val())
+  })
+
 }

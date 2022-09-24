@@ -9,18 +9,17 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/main.css">
 
-  <script defer src="/__/firebase/9.10.0/firebase-app-compat.js"></script>
-  <!-- include only the Firebase features as you need -->
-  <script defer src="/__/firebase/9.10.0/firebase-auth-compat.js"></script>
-  <script defer src="/__/firebase/9.10.0/firebase-firestore-compat.js"></script>
-  <script defer src="/__/firebase/9.10.0/firebase-storage-compat.js"></script>
-
-
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase.js"></script>
+  <script type="text/javascript" src = "./js/adddata.js"></script>
+  <script type="text/javascript" src = "./js/readdata.js"></script>
 </head>
 
 
 
 <body>
+
+<button onclick="setdata();"> </button>
+
   <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
     <div class="container">
       <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
@@ -169,11 +168,5 @@
 
 
 </body>
-
-
-
-
-<script type="module" src = "js/adddata.js"></script>
-
 
 </html>
