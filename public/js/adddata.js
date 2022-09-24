@@ -1,30 +1,68 @@
-document.write('<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase.js"></script>');
+document.write('<script src="../js/config.js"></script>');
 
 function init_DB(){
-  const firebaseConfig = {
-    apiKey: "AIzaSyANW9B69OXwB3MuMysbppB6we8uI4l-2XI",
-    authDomain: "runners-5383d.firebaseapp.com",
-    databaseURL: "https://runners-5383d-default-rtdb.firebaseio.com",
-    projectId: "runners-5383d",
-    storageBucket: "runners-5383d.appspot.com",
-    messagingSenderId: "61987349638",
-    appId: "1:61987349638:web:41d7cb172782c2662fdd07",
-    measurementId: "G-DC3RLVG1K6"
-  };
-  
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+  init()
 }
 
-function myFunction() {
+function pushDB(name) {
+  let database = firebase.database();
+  let type
+  
+  document.getElementsByName('gridRadios').forEach((node) => {
+    if(node.checked)  {
+      type = node.value
+    }
+  })
 
-  alert("전송 완료");
+  const storage = firebase.storage();
+                    
+  setTimeout(()=>{
 
-  firebase.database().ref('Event').push({
-      Name: document.getElementById("name").value,
-      Where: document.getElementById("where").value,
-      start_date: document.getElementById("stdate").value,
-      end_date: document.getElementById("eddate").value,
-      who: document.getElementById("who").value
-  });
+  storage.ref(`images/`+name).getDownloadURL()
+      .then((Img_Url) => {
+        alert("신청 완료")
+        database.ref('Event').push({
+          InputOrganizer: document.getElementById("inputOrganizer").value,
+          InputEvent: document.getElementById("inputEvent").value,
+          EventType: type,
+          Start_date: document.getElementById("st_date").value,
+          End_date: document.getElementById("ed_date").value,
+          InputAddress: document.getElementById("inputAddress").value,
+          InputName: document.getElementById("inputName").value,
+          InputPhone: document.getElementById("inputPhone").value,
+          InputEmail: document.getElementById("inputEmail").value,
+          ImgUrl: Img_Url
+        });
+  })
+},4000);
+}
+
+function ImgListener(){
+  
+    const storageRef = firebase.storage().ref();
+    let selectedFile;
+    let name;
+  
+    // File 선택
+    document.getElementById('fileup').addEventListener('change', e => {
+        selectedFile = e.target.files[0];
+        name = selectedFile.name
+    });
+  
+    // File 업로드
+    document.getElementById('submit').addEventListener('click', () => {
+        
+        storageRef
+                .child(`images/${selectedFile.name}`)
+                .put(selectedFile)
+                .on('state_changed', snapshot => {
+                                            
+                                        }, error => {
+                                            
+                                        }, () => {
+                                            
+                                        }
+                );
+        pushDB(name)
+    });
 }
