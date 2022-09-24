@@ -10,14 +10,11 @@
 
   <link rel="stylesheet" href="/css/main.css">
   <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase.js"></script>
-  <script src = "./js/main.js" ></script>
+  <script src="js/main.js"></script>
   <link rel="stylesheet" href="css/main.css">
-
 </head>
 
 <body>
-
-
 
   <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
     <div class="container">
@@ -28,11 +25,20 @@
   </header>
 
   <main>
+    <div class="container">
+      <div class="btn-group pb-3">
+        <button class="category btn btn-light active" data-category="all" class="btn btn-light">all</button>
+        <button class="category btn btn-light" data-category="exhibition" class="btn btn-light">exhibition</button>
+        <button class="category btn btn-light" data-category="festival" class="btn btn-light">festival</button>
+        <button class="category btn btn-light" data-category="performance" class="btn btn-light">performance</button>
+      </div>
+    </div>
+
     <div class="album">
       <div class="container">
         <div class="pb-3">총 <strong>n</strong>건</div>
         <ul class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          <li class="col pb-1">
+          <li class="item exhibition col pb-1">
             <a href="https://exco.co.kr/schedule/schedule_view.html?code=P_AGPV56306&ex_cate=1">
               <div class="card shadow-sm zoom">
                 <img class="bd-placeholder-img card-img-top" src="assets/images/aaaaa.jpg" alt="더골프쇼 in Autumn" width="100%">
@@ -50,7 +56,7 @@
             </a>
           </li>
 
-          <li class="col pb-1">
+          <li class="item col pb-1">
             <a href="https://exco.co.kr/schedule/schedule_view.html?code=P_AGPV56306&ex_cate=1">
               <div class="card shadow-sm zoom">
                 <img class="bd-placeholder-img card-img-top" src="assets/images/aaaaa.jpg" alt="더골프쇼 in Autumn" width="100%">
@@ -68,7 +74,7 @@
             </a>
           </li>
 
-          <li class="col pb-1">
+          <li class="item col pb-1">
             <a href="https://exco.co.kr/schedule/schedule_view.html?code=P_AGPV56306&ex_cate=1">
               <div class="card shadow-sm zoom">
                 <img class="bd-placeholder-img card-img-top" src="assets/images/aaaaa.jpg" alt="더골프쇼 in Autumn" width="100%">
@@ -86,7 +92,7 @@
             </a>
           </li>
 
-          <li class="col pb-1">
+          <li class="item col pb-1">
             <a href="https://exco.co.kr/schedule/schedule_view.html?code=P_AGPV56306&ex_cate=1">
               <div class="card shadow-sm zoom">
                 <img class="bd-placeholder-img card-img-top" src="assets/images/aaaaa.jpg" alt="더골프쇼 in Autumn" width="100%">
@@ -104,7 +110,7 @@
             </a>
           </li>
 
-          <li class="col pb-1">
+          <li class="item col pb-1">
             <a href="https://exco.co.kr/schedule/schedule_view.html?code=P_AGPV56306&ex_cate=1">
               <div class="card shadow-sm zoom">
                 <img class="bd-placeholder-img card-img-top" src="assets/images/aaaaa.jpg" alt="더골프쇼 in Autumn" width="100%">
@@ -122,7 +128,7 @@
             </a>
           </li>
 
-          <li class="col pb-1">
+          <li class="item col pb-1">
             <a href="https://exco.co.kr/schedule/schedule_view.html?code=P_AGPV56306&ex_cate=1">
               <div class="card shadow-sm zoom">
                 <img class="bd-placeholder-img card-img-top" src="assets/images/aaaaa.jpg" alt="더골프쇼 in Autumn" width="100%">
@@ -140,7 +146,7 @@
             </a>
           </li>
 
-          <li class="col pb-1">
+          <li class="item col pb-1">
             <a href="https://exco.co.kr/schedule/schedule_view.html?code=P_AGPV56306&ex_cate=1">
               <div class="card shadow-sm zoom">
                 <img class="bd-placeholder-img card-img-top" src="assets/images/aaaaa.jpg" alt="더골프쇼 in Autumn" width="100%">
