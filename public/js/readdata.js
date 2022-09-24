@@ -27,52 +27,52 @@ function setdata() {
 
 
   let database = firebase.database();
-
+  var count = 0;
   const DB = database.ref('Event/');
 
   DB.on('child_added', function(data){
     console.log(data.val())
-    alert(JSON.stringify(data.val(), null, 3))
-    var count = 0;
+    //alert(JSON.stringify(data.val(), null, 3))
+
     if(count%3 == 0)
     {
       var templete = `
-      <li class="col pb-1">
+      <li class="col pb-3">
               <a href="https://exco.co.kr/schedule/schedule_view.html?code=P_AGPV56306&ex_cate=1">
                 <div class="card shadow-sm zoom">
                   <img class="bd-placeholder-img card-img-top" src="assets/images/aaaaa.jpg" alt="더골프쇼 in Autumn" width="100%">
                   <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group btn-group-sm btn-border-radius-sm" role="group" aria-label="status">
-                        <button type="button" class="btn btn-danger" style="--bs-btn-border-radius: .7rem;">진행중</button>
+                        <button type="button" class="btn btn-danger" style="--bs-btn-border-radius: .7rem; alt ="www.naver.com"">진행중</button>
                       </div>
                       <date class="text-muted">${data.val().start_date}</date>
                     </div>
                     <div class="fs-6 text-muted pt-3">${data.val().who}</div>
-                    <p class="card-text fs-5 fw-bold">${data.val().who}}</p>
+                    <p class="card-text fs-5 fw-bold">${data.val().who}</p>
                   </div>
                 </div>
               </a>
             </li>
             `;
-    $('.col').append(templete)
+    $('.col1').append(templete)
     }
-    else if(count%3== 1)
+    else if(count%3 == 1)
     {
       var templete = `
-      <li class="col pb-2">
+      <li class="col pb-3">
               <a href="https://exco.co.kr/schedule/schedule_view.html?code=P_AGPV56306&ex_cate=1">
                 <div class="card shadow-sm zoom">
                   <img class="bd-placeholder-img card-img-top" src="assets/images/aaaaa.jpg" alt="더골프쇼 in Autumn" width="100%">
                   <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group btn-group-sm btn-border-radius-sm" role="group" aria-label="status">
-                        <button type="button" class="btn btn-danger" style="--bs-btn-border-radius: .7rem;">진행중</button>
+                        <button type="button" class="btn btn-danger" style="--bs-btn-border-radius: .7rem; alt ="www.naver.com"">진행중</button>
                       </div>
                       <date class="text-muted">${data.val().start_date}</date>
                     </div>
                     <div class="fs-6 text-muted pt-3">${data.val().who}</div>
-                    <p class="card-text fs-5 fw-bold">${data.val().who}}</p>
+                    <p class="card-text fs-5 fw-bold">${data.val().who}</p>
                   </div>
                 </div>
               </a>
@@ -89,18 +89,18 @@ function setdata() {
                   <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group btn-group-sm btn-border-radius-sm" role="group" aria-label="status">
-                        <button type="button" class="btn btn-danger" style="--bs-btn-border-radius: .7rem;">진행중</button>
+                        <button type="button" class="btn btn-danger" style="--bs-btn-border-radius: .7rem; alt ="www.naver.com"">진행중</button>
                       </div>
                       <date class="text-muted">${data.val().start_date}</date>
                     </div>
                     <div class="fs-6 text-muted pt-3">${data.val().who}</div>
-                    <p class="card-text fs-5 fw-bold">${data.val().who}}</p>
+                    <p class="card-text fs-5 fw-bold">${data.val().who}</p>
                   </div>
                 </div>
               </a>
             </li>
             `;
-    $('.col').append(templete)
+    $('.col3').append(templete)
     }
     count++;
     
