@@ -6,18 +6,12 @@ function start() {
     event.preventDefault();
     const filter = event.target.dataset.category;
     const cats = document.querySelectorAll(".category");
-    console.log(filter);
-    console.log(items);
-
 
     items.forEach(item => {
-      console.log(item);
       if (filter === 'all') {
         item.style.display = 'block';
       } else {
-        console.log(item);
         if (item.classList.contains(filter)) {
-          console.log(item);
           item.style.display = 'block';
         } else {
           item.style.display='none';
