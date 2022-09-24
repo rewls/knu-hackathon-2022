@@ -23,12 +23,116 @@ function init_DB(){
 
 function setdata() {
 
-  alert("전송 완료");
-  
-  //firebase에 쓰기
-  var dbRef = database.ref().child("Event");
-  dbRef.on('value',snap => {
-  preObject.innerText = JSON.stringify(snap.val(),null,3);
-  });
+  //alert("전송 완료");
+
+
+  let database = firebase.database();
+
+  const DB = database.ref('Event/');
+
+  DB.on('child_added', function(data){
+    console.log(data.val())
+    alert(JSON.stringify(data.val(), null, 3))
+    var count = 0;
+    if(count%3 == 0)
+    {
+      var templete = `
+      <li class="col pb-1">
+              <a href="https://exco.co.kr/schedule/schedule_view.html?code=P_AGPV56306&ex_cate=1">
+                <div class="card shadow-sm zoom">
+                  <img class="bd-placeholder-img card-img-top" src="assets/images/aaaaa.jpg" alt="더골프쇼 in Autumn" width="100%">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group btn-group-sm btn-border-radius-sm" role="group" aria-label="status">
+                        <button type="button" class="btn btn-danger" style="--bs-btn-border-radius: .7rem;">진행중</button>
+                      </div>
+                      <date class="text-muted">${data.val().start_date}</date>
+                    </div>
+                    <div class="fs-6 text-muted pt-3">${data.val().who}</div>
+                    <p class="card-text fs-5 fw-bold">${data.val().who}}</p>
+                  </div>
+                </div>
+              </a>
+            </li>
+            `;
+    $('.col').append(templete)
+    }
+    else if(count%3== 1)
+    {
+      var templete = `
+      <li class="col pb-2">
+              <a href="https://exco.co.kr/schedule/schedule_view.html?code=P_AGPV56306&ex_cate=1">
+                <div class="card shadow-sm zoom">
+                  <img class="bd-placeholder-img card-img-top" src="assets/images/aaaaa.jpg" alt="더골프쇼 in Autumn" width="100%">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group btn-group-sm btn-border-radius-sm" role="group" aria-label="status">
+                        <button type="button" class="btn btn-danger" style="--bs-btn-border-radius: .7rem;">진행중</button>
+                      </div>
+                      <date class="text-muted">${data.val().start_date}</date>
+                    </div>
+                    <div class="fs-6 text-muted pt-3">${data.val().who}</div>
+                    <p class="card-text fs-5 fw-bold">${data.val().who}}</p>
+                  </div>
+                </div>
+              </a>
+            </li>
+            `;
+    $('.col2').append(templete)
+    }
+    else{
+      var templete = `
+      <li class="col pb-3">
+              <a href="https://exco.co.kr/schedule/schedule_view.html?code=P_AGPV56306&ex_cate=1">
+                <div class="card shadow-sm zoom">
+                  <img class="bd-placeholder-img card-img-top" src="assets/images/aaaaa.jpg" alt="더골프쇼 in Autumn" width="100%">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group btn-group-sm btn-border-radius-sm" role="group" aria-label="status">
+                        <button type="button" class="btn btn-danger" style="--bs-btn-border-radius: .7rem;">진행중</button>
+                      </div>
+                      <date class="text-muted">${data.val().start_date}</date>
+                    </div>
+                    <div class="fs-6 text-muted pt-3">${data.val().who}</div>
+                    <p class="card-text fs-5 fw-bold">${data.val().who}}</p>
+                  </div>
+                </div>
+              </a>
+            </li>
+            `;
+    $('.col').append(templete)
+    }
+    count++;
+    
+})
+
+
+    
+
+  /*
+  var dbTestRef = firebase.database().ref('Event/')
+  dbTestRef.on('child_added', function(data){
+	console.log(data.val())
+  var templete = `
+  <li class="col pb-1">
+            <a href="https://exco.co.kr/schedule/schedule_view.html?code=P_AGPV56306&ex_cate=1">
+              <div class="card shadow-sm zoom">
+                <img class="bd-placeholder-img card-img-top" src="assets/images/aaaaa.jpg" alt="더골프쇼 in Autumn" width="100%">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group btn-group-sm btn-border-radius-sm" role="group" aria-label="status">
+                      <button type="button" class="btn btn-danger" style="--bs-btn-border-radius: .7rem;">진행중</button>
+                    </div>
+                    <date class="text-muted">2022. 09. 22 ~ 25</date>
+                  </div>
+                  <div class="fs-6 text-muted pt-3">(주)이엑스스포테인먼트</div>
+                  <p class="card-text fs-5 fw-bold">더골프쇼 in Autumn</p>
+                </div>
+              </div>
+            </a>
+          </li>
+  `;
+  $('.container').append(templete)
+})*/
 
 }
