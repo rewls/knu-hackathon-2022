@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+  <meta charset="UTF-8"> <title>Test Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/main.css">
+
+  <script defer src="/__/firebase/9.10.0/firebase-app-compat.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/9.10.0/firebase-auth-compat.js"></script>
+  <script defer src="/__/firebase/9.10.0/firebase-firestore-compat.js"></script>
+  <script defer src="/__/firebase/9.10.0/firebase-storage-compat.js"></script>
+
+
+</head>
+
+
+
+<body>
+  <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    <div class="container">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4">Test Title</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <div class="album">
+      <div class="container">
+        <div class="pb-3">총 <strong>n</strong>건</div>
+        <ul class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <li class="col pb-1">
+            <a href="https://exco.co.kr/schedule/schedule_view.html?code=P_AGPV56306&ex_cate=1">
+              <div class="card shadow-sm zoom">
+                <img class="bd-placeholder-img card-img-top" src="assets/images/aaaaa.jpg" alt="더골프쇼 in Autumn" width="100%">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group btn-group-sm btn-border-radius-sm" role="group" aria-label="status">
+                      <button type="button" class="btn btn-danger" style="--bs-btn-border-radius: .7rem;">진행중</button>
+                    </div>
+                    <date class="text-muted">2022. 09. 22 ~ 25</date>
+                  </div>
+                  <div class="fs-6 text-muted pt-3">(주)이엑스스포테인먼트</div>
+                  <p class="card-text fs-5 fw-bold">더골프쇼 in Autumn</p>
+                </div>
+              </div>
+            </a>
+          </li>
+
+          <li class="col pb-1">
+            <a href="https://exco.co.kr/schedule/schedule_view.html?code=P_AGPV56306&ex_cate=1">
+              <div class="card shadow-sm zoom">
+                <img class="bd-placeholder-img card-img-top" src="assets/images/aaaaa.jpg" alt="더골프쇼 in Autumn" width="100%">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group btn-group-sm btn-border-radius-sm" role="group" aria-label="status">
+                      <button type="button" class="btn btn-danger" style="--bs-btn-border-radius: .7rem;">진행중</button>
+                    </div>
+                    <date class="text-muted">2022. 09. 22 ~ 25</date>
+                  </div>
+                  <div class="fs-6 text-muted pt-3">(주)이엑스스포테인먼트</div>
+                  <p class="card-text fs-5 fw-bold">더골프쇼 in Autumn</p>
+                </div>
+              </div>
+            </a>
+          </li>
+
+          <li class="col pb-1">
+            <a href="https://exco.co.kr/schedule/schedule_view.html?code=P_AGPV56306&ex_cate=1">
+              <div class="card shadow-sm zoom">
+                <img class="bd-placeholder-img card-img-top" src="assets/images/aaaaa.jpg" alt="더골프쇼 in Autumn" width="100%">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group btn-group-sm btn-border-radius-sm" role="group" aria-label="status">
+                      <button type="button" class="btn btn-warning" style="--bs-btn-border-radius: .7rem;">D-4</button>
+                    </div>
+                    <date class="text-muted">2022. 09. 25 ~ 29</date>
+                  </div>
+                  <div class="fs-6 text-muted pt-3">(주)이엑스스포테인먼트</div>
+                  <p class="card-text fs-5 fw-bold">더골프쇼 in Autumn</p>
+                </div>
+              </div>
+            </a>
+          </li>
+
+          <li class="col pb-1">
+            <a href="https://exco.co.kr/schedule/schedule_view.html?code=P_AGPV56306&ex_cate=1">
+              <div class="card shadow-sm zoom">
+                <img class="bd-placeholder-img card-img-top" src="assets/images/aaaaa.jpg" alt="더골프쇼 in Autumn" width="100%">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group btn-group-sm btn-border-radius-sm" role="group" aria-label="status">
+                      <button type="button" class="btn btn-warning" style="--bs-btn-border-radius: .7rem;">D-6</button>
+                    </div>
+                    <date class="text-muted">2022. 10. 01</date>
+                  </div>
+                  <div class="fs-6 text-muted pt-3">(주)이엑스스포테인먼트</div>
+                  <p class="card-text fs-5 fw-bold">더골프쇼 in Autumn</p>
+                </div>
+              </div>
+            </a>
+          </li>
+
+          <li class="col pb-1">
+            <a href="https://exco.co.kr/schedule/schedule_view.html?code=P_AGPV56306&ex_cate=1">
+              <div class="card shadow-sm zoom">
+                <img class="bd-placeholder-img card-img-top" src="assets/images/aaaaa.jpg" alt="더골프쇼 in Autumn" width="100%">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group btn-group-sm btn-border-radius-sm" role="group" aria-label="status">
+                      <button type="button" class="btn btn-danger" style="--bs-btn-border-radius: .7rem;">진행중</button>
+                    </div>
+                    <date class="text-muted">2022. 09. 22 ~ 25</date>
+                  </div>
+                  <div class="fs-6 text-muted pt-3">(주)이엑스스포테인먼트</div>
+                  <p class="card-text fs-5 fw-bold">더골프쇼 in Autumn</p>
+                </div>
+              </div>
+            </a>
+          </li>
+
+          <li class="col pb-1">
+            <a href="https://exco.co.kr/schedule/schedule_view.html?code=P_AGPV56306&ex_cate=1">
+              <div class="card shadow-sm zoom">
+                <img class="bd-placeholder-img card-img-top" src="assets/images/aaaaa.jpg" alt="더골프쇼 in Autumn" width="100%">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group btn-group-sm btn-border-radius-sm" role="group" aria-label="status">
+                      <button type="button" class="btn btn-danger" style="--bs-btn-border-radius: .7rem;">진행중</button>
+                    </div>
+                    <date class="text-muted">2022. 09. 22 ~ 25</date>
+                  </div>
+                  <div class="fs-6 text-muted pt-3">(주)이엑스스포테인먼트</div>
+                  <p class="card-text fs-5 fw-bold">더골프쇼 in Autumn</p>
+                </div>
+              </div>
+            </a>
+          </li>
+
+          <li class="col pb-1">
+            <a href="https://exco.co.kr/schedule/schedule_view.html?code=P_AGPV56306&ex_cate=1">
+              <div class="card shadow-sm zoom">
+                <img class="bd-placeholder-img card-img-top" src="assets/images/aaaaa.jpg" alt="더골프쇼 in Autumn" width="100%">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group btn-group-sm btn-border-radius-sm" role="group" aria-label="status">
+                      <button type="button" class="btn btn-danger" style="--bs-btn-border-radius: .7rem;">진행중</button>
+                    </div>
+                    <date class="text-muted">2022. 09. 22 ~ 25</date>
+                  </div>
+                  <div class="fs-6 text-muted pt-3">(주)이엑스스포테인먼트</div>
+                  <p class="card-text fs-5 fw-bold">더골프쇼 in Autumn</p>
+                </div>
+              </div>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </main>
+
+
+
+
+</body>
+
+
+
+
+<script type="module" src = "/adddata.js"></script>
+
+
+</html>
