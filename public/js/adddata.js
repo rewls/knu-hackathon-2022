@@ -36,6 +36,9 @@ const analytics = getAnalytics(app);
     console.log(`${doc.id} => ${doc.data().born}`);
   });
 
+
+  
+
   //write collection data
 
   /*
