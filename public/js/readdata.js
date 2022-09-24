@@ -34,8 +34,6 @@ function setdata() {
     console.log(data.val())
     //alert(JSON.stringify(data.val(), null, 3))
 
-    if(count%3 == 0)
-    {
       var templete = `
       <li class="col pb-3">
               <a href="https://exco.co.kr/schedule/schedule_view.html?code=P_AGPV56306&ex_cate=1">
@@ -44,65 +42,19 @@ function setdata() {
                   <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group btn-group-sm btn-border-radius-sm" role="group" aria-label="status">
-                        <button type="button" class="btn btn-danger" style="--bs-btn-border-radius: .7rem; alt ="www.naver.com"">진행중</button>
+                        <button type="button" class="btn btn-danger" style="--bs-btn-border-radius: .7rem;">진행중</button>
                       </div>
                       <date class="text-muted">${data.val().start_date}</date>
                     </div>
                     <div class="fs-6 text-muted pt-3">${data.val().who}</div>
-                    <p class="card-text fs-5 fw-bold">${data.val().who}</p>
+                    <p class="card-text fs-5 fw-bold">${data.val().Name}</p>
                   </div>
                 </div>
               </a>
             </li>
             `;
-    $('.col1').append(templete)
-    }
-    else if(count%3 == 1)
-    {
-      var templete = `
-      <li class="col pb-3">
-              <a href="https://exco.co.kr/schedule/schedule_view.html?code=P_AGPV56306&ex_cate=1">
-                <div class="card shadow-sm zoom">
-                  <img class="bd-placeholder-img card-img-top" src="assets/images/aaaaa.jpg" alt="더골프쇼 in Autumn" width="100%">
-                  <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group btn-group-sm btn-border-radius-sm" role="group" aria-label="status">
-                        <button type="button" class="btn btn-danger" style="--bs-btn-border-radius: .7rem; alt ="www.naver.com"">진행중</button>
-                      </div>
-                      <date class="text-muted">${data.val().start_date}</date>
-                    </div>
-                    <div class="fs-6 text-muted pt-3">${data.val().who}</div>
-                    <p class="card-text fs-5 fw-bold">${data.val().who}</p>
-                  </div>
-                </div>
-              </a>
-            </li>
-            `;
-    $('.col2').append(templete)
-    }
-    else{
-      var templete = `
-      <li class="col pb-3">
-              <a href="https://exco.co.kr/schedule/schedule_view.html?code=P_AGPV56306&ex_cate=1">
-                <div class="card shadow-sm zoom">
-                  <img class="bd-placeholder-img card-img-top" src="assets/images/aaaaa.jpg" alt="더골프쇼 in Autumn" width="100%">
-                  <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group btn-group-sm btn-border-radius-sm" role="group" aria-label="status">
-                        <button type="button" class="btn btn-danger" style="--bs-btn-border-radius: .7rem; alt ="www.naver.com"">진행중</button>
-                      </div>
-                      <date class="text-muted">${data.val().start_date}</date>
-                    </div>
-                    <div class="fs-6 text-muted pt-3">${data.val().who}</div>
-                    <p class="card-text fs-5 fw-bold">${data.val().who}</p>
-                  </div>
-                </div>
-              </a>
-            </li>
-            `;
-    $('.col3').append(templete)
-    }
-    count++;
+    $('.col1').before(templete)
+
     
 })
 
