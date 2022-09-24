@@ -1,7 +1,7 @@
 function start() {
   const categories = document.querySelectorAll(".category");
-  const items = document.querySelectorAll(".item");
   const item_count = document.getElementById("item-count");
+  let items = document.querySelectorAll(".item");
   let count;
 
   categories.forEach(category => category.addEventListener("click", (event) => {
