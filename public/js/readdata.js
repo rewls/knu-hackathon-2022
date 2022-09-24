@@ -2,7 +2,7 @@ document.write('<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase.j
 
 function init_DB(){
 
-  
+
   const firebaseConfig = {
     apiKey: "AIzaSyANW9B69OXwB3MuMysbppB6we8uI4l-2XI",
     authDomain: "runners-5383d.firebaseapp.com",
@@ -13,7 +13,7 @@ function init_DB(){
     appId: "1:61987349638:web:41d7cb172782c2662fdd07",
     measurementId: "G-DC3RLVG1K6"
   };
-  
+
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
 
@@ -34,10 +34,10 @@ function setdata() {
     //alert(JSON.stringify(data.val(), null, 3))
 
       var templete = `
-      <li class="col pb-3">
+      <li class="item ${data.val().EventType} col pb-3">
               <a href="https://exco.co.kr/schedule/schedule_view.html?code=P_AGPV56306&ex_cate=1">
                 <div class="card shadow-sm zoom">
-                  <img class="bd-placeholder-img card-img-top" src="${data.val().ImgUrl}" alt="더골프쇼 in Autumn" width="100%">
+                  <img class="bd-placeholder-img card-img-top" src="${data.val().ImgUrl}" width="100%">
                   <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group btn-group-sm btn-border-radius-sm" role="group" aria-label="status">
@@ -54,11 +54,11 @@ function setdata() {
             `;
     $('.col1').before(templete)
 
-    
+
 })
 
 
-    
+
 
   /*
   var dbTestRef = firebase.database().ref('Event/')

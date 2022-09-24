@@ -4,6 +4,7 @@ function start() {
 
   categories.forEach(category => category.addEventListener("click", (event) => {
     event.preventDefault();
+    const items = document.querySelectorAll(".item");
     const filter = event.target.dataset.category;
     const cats = document.querySelectorAll(".category");
 
