@@ -1,9 +1,6 @@
-import "filter.js";
-import "adddata.js";
-import "readdata.js";
+document.write("<script src = './js/adddata.js'></script>")
+document.write("<script src = './js/filter.js'></script>")
+document.write("<script src = './js/readdata.js'></script>")
 
-// firebase
-import "/__/firebase/9.10.0/firebase-app-compat.js"
-import "/__/firebase/9.10.0/firebase-auth-compat.js"
-import "/__/firebase/9.10.0/firebase-firestore-compat.js"
-import "/__/firebase/9.10.0/firebase-storage-compat.js"
+
+

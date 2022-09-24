@@ -19,5 +19,12 @@ function init_DB(){
 function myFunction() {
 
   alert("전송 완료");
-  
+
+  firebase.database().ref('Event').push({
+      Name: document.getElementById("name").value,
+      Where: document.getElementById("where").value,
+      start_date: document.getElementById("stdate").value,
+      end_date: document.getElementById("eddate").value,
+      who: document.getElementById("who").value
+  });
 }
