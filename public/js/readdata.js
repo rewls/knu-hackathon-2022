@@ -79,8 +79,8 @@ function setdata() {
 
     count++;
       var templete = `
-      <li class="item event-block status-block ${data.val().EventType} ${filterStatus(data.val().Start_date, data.val().End_date)} col pb-3">
-              <a href=../html/page.html id = '${data.key}'>
+      <li class="item ${data.val().EventType} col pb-3">
+              <a href=./html/page.html id = '${data.key}'>
                 <div class="card shadow-sm zoom">
                   <img class="bd-placeholder-img card-img-top" src="${data.val().ImgUrl}" width="100%">
                   <div class="card-body p-6">
