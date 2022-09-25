@@ -21,3 +21,11 @@ a:active {
 .zoom:hover {
   transform: scale(1.03);
 }
+
+.apply {
+  --bs-btn-bg: #DDDDFF;
+  --bs-btn-border-color: #DDDDFF;
+  --bs-btn-border-radius: .5rem;
+  --bs-btn-hover-bg: #CCCCFF;
+  --bs-btn-hover-border-color: #CCCCFF;
+}

@@ -25,31 +25,26 @@ function setdata() {
 
   //alert("전송 완료");
 
-  const item_count = document.getElementById("item-count");
+
   let database = firebase.database();
   const DB = database.ref('Event/').orderByChild("End_date");
 
-  let count = 0;
   DB.on('child_added', function(data){
     console.log(data.val())
     
 
-    count++;
       var templete = `
       <li class="item ${data.val().EventType} col pb-3">
               <a href=../html/page.html id = '${data.key}'>
                 <div class="card shadow-sm zoom">
                   <img class="bd-placeholder-img card-img-top" src="${data.val().ImgUrl}" width="100%">
-                  <div class="card-body p-6">
+                  <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
-                      <div class="condition btn-group btn-group-sm btn-border-radius-sm" role="group" aria-label="condition">
+                      <div class="btn-group btn-group-sm btn-border-radius-sm" role="group" aria-label="status">
                         <button type="button" class="btn btn-danger" style="--bs-btn-border-radius: .7rem;">진행중</button>
                       </div>
-                      <div class="small text-muted text-end">
-                        <date>${data.val().Start_date}</date>
-                        ~&nbsp;<date>${data.val().End_date}</date>
-                      </div>
                     </div>
+                    <date class="text-muted">${data.val().Start_date} ~ ${data.val().End_date}</date>
                     <div class="fs-6 text-muted pt-3">${data.val().InputOrganizer}</div>
                     <p class="card-text fs-5 fw-bold">${data.val().InputName}</p>
                   </div>
@@ -66,14 +61,7 @@ function setdata() {
             </script>
             `;
     $('.col1').before(templete)
-<<<<<<< HEAD
-=======
-
-  item_count.textContent = count;
-
->>>>>>> 5f99abb0271cd7a73c36608f4bbb41f34a3ff5d5
 })
-
 
 
 
