@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Google Maps</title>
+
+    <style type="text/css">
+       
+        #map {
+            height: 400px;
+           
+            width: 100%;
+            
+        }
+    </style>
+    <script>
+        function initMap() {
+
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 14,
+                center: { lat: 35.8905, lng:128.6112 },
+            });
+
+            for (var i = 0; i < locations.length; i++) {
+                var marker = new google.maps.Marker({
+                    map: map,
+                    label: locations[i].place,
+                    position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
+                });
+            }
+        }
+        const locations = [
+
+            { place:"경북대학교",lat:35.8905 ,lng:128.6112,},
+            { place:"엑스코",lat:35.9095 ,lng:128.612,}
+        ];
+
+    </script>
+</head>
+
+<body>
+    <h3>구글 맵</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEcmr5uYSUhGnI0-h_aDWCaNMQABegA10&callback=initMap&libraries=&v=weekly"
+        async></script>
+</body>
+
+</html>

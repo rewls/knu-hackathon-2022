@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Google Maps</title>
+
+    <style type="text/css">
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 400px;
+            /* The height is 400 pixels */
+            width: 100%;
+            /* The width is the width of the web page */
+        }
+    </style>
+  
+</head>
+
+<body>
+    <h3>구글 맵</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script src="js/map.js"> </script>
+    <script 
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEcmr5uYSUhGnI0-h_aDWCaNMQABegA10&callback=initMap&libraries=&v=weekly"
+        async></script>
+</body>
+
+</html>
