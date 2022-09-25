@@ -2,7 +2,6 @@ document.write('<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase.j
 
 function init_DB(){
 
-
   const firebaseConfig = {
     apiKey: "AIzaSyANW9B69OXwB3MuMysbppB6we8uI4l-2XI",
     authDomain: "runners-5383d.firebaseapp.com",
@@ -19,7 +18,40 @@ function init_DB(){
 
 }
 
+function milliesToDate(millies) {
+  return Math.floor(millies / (24 * 60 * 60 * 1000)) + 1;
+}
 
+function isOngoing(start_date, end_date) {
+  const today_millies = new Date().getTime();
+  start_millies = new Date(start_date).getTime();
+  end_millies = new Date(end_date).getTime();
+  if (milliesToDate(today_millies - start_millies) >= 0 && milliesToDate(end_millies - today_millies) >= 0) {
+    return 1;
+  } else if (milliesToDate(today_millies - start_millies) < 0) {
+    return 2;
+  }
+  return 0;
+}
+
+function calculateDDay(start_date) {
+  const today_millies = new Date().getTime();
+  start_millies = new Date(start_date).getTime();
+  const d_day = milliesToDate(start_millies - today_millies);
+
+  return d_day;
+}
+
+function status(start_date, end_date) {
+  switch (isOngoing(start_date,end_date)) {
+    case 0:
+      return "마감";
+    case 1:
+      return "진행중";
+    case 2:
+      return "D-"+calculateDDay(start_date);
+  }
+}
 
 function setdata() {
 
@@ -31,8 +63,8 @@ function setdata() {
 
   let count = 0;
   DB.on('child_added', function(data){
-    console.log(data.val())
-    
+    //console.log(data.val())
+    //alert(JSON.stringify(data.val(), null, 3))
 
     count++;
       var templete = `
@@ -42,12 +74,12 @@ function setdata() {
                   <img class="bd-placeholder-img card-img-top" src="${data.val().ImgUrl}" width="100%">
                   <div class="card-body p-6">
                     <div class="d-flex justify-content-between align-items-center">
-                      <div class="condition btn-group btn-group-sm btn-border-radius-sm" role="group" aria-label="condition">
-                        <button type="button" class="btn btn-danger" style="--bs-btn-border-radius: .7rem;">진행중</button>
+                      <div class="status btn-group btn-group-sm btn-border-radius-sm" role="group" aria-label="status">
+                        <button type="button" class="btn btn-danger" style="--bs-btn-border-radius: .7rem;">${status(data.val().Start_date, data.val().End_date)}</button>
                       </div>
                       <div class="small text-muted text-end">
-                        <date>${data.val().Start_date}</date>
-                        ~&nbsp;<date>${data.val().End_date}</date>
+                        <date class="start-date">${data.val().Start_date}</date>
+                        ~&nbsp;<date class="end-date">${data.val().End_date}</date>
                       </div>
                     </div>
                     <div class="fs-6 text-muted pt-3">${data.val().InputOrganizer}</div>
@@ -59,24 +91,17 @@ function setdata() {
             <script>
               document.getElementById('${data.key}').addEventListener('click', () => {
                 alert('${data.key}')
-                
+
                 localStorage.setItem("key", "${data.key}");
-                
+
               });
             </script>
             `;
     $('.col1').before(templete)
-<<<<<<< HEAD
-=======
 
   item_count.textContent = count;
 
->>>>>>> 5f99abb0271cd7a73c36608f4bbb41f34a3ff5d5
 })
-
-
-
-
 
   /*
   var dbTestRef = firebase.database().ref('Event/')
@@ -105,3 +130,4 @@ function setdata() {
 })*/
 
 }
+
