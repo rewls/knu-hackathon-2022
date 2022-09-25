@@ -22,10 +22,16 @@ a:active {
   transform: scale(1.03);
 }
 
-.apply {
-  --bs-btn-bg: #DDDDFF;
-  --bs-btn-border-color: #DDDDFF;
+.btn-gray.apply {
+  --bs-btn-bg: #F5F5F5;
+  --bs-btn-border-color: #F5F5F5;
   --bs-btn-border-radius: .5rem;
-  --bs-btn-hover-bg: #CCCCFF;
-  --bs-btn-hover-border-color: #CCCCFF;
+  --bs-btn-hover-bg: #DDDDFF;
+  --bs-btn-hover-border-color: #DDDDFF;
+}
+
+.btn-gray {
+  --bs-btn-bg: #F5F5F5;
+  --bs-btn-border-color: #F5F5F5;
+  --bs-btn-border-radius: .5rem;
 }
