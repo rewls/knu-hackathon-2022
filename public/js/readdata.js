@@ -53,6 +53,17 @@ function status(start_date, end_date) {
   }
 }
 
+function filterStatus(start_date, end_date) {
+  switch (isOngoing(start_date,end_date)) {
+    case 0:
+      return "마감";
+    case 1:
+      return "진행중";
+    case 2:
+      return "예정";
+  }
+}
+
 function setdata() {
 
   //alert("전송 완료");

@@ -26,22 +26,33 @@
   </header>
 
   <main>
-    <div class="container d-flex flex-wrap justify-content-center">
-      <div class="btn-group pb-3 d-flex align-items-center mb-3 mb-lg-0 me-lg-auto">
-        <button class="category btn btn-light active" data-category="all">전체</button>
-        <button class="category btn btn-light" data-category="전시회">전시회</button>
-        <button class="category btn btn-light" data-category="축제">축제</button>
-        <button class="category btn btn-light" data-category="공연">공연</button>
+    <div class="container d-flex justify-content-center">
+      <div class="btn-group pb-3 d-flex align-items-center mb-lg-0 me-lg-auto">
+        <button class="category-event btn btn-light active" data-category="all">전체</button>
+        <button class="category-event btn btn-light" data-category="전시회">전시회</button>
+        <button class="category-event btn btn-light" data-category="축제">축제</button>
+        <button class="category-event btn btn-light" data-category="공연">공연</button>
       </div>
-      <div class="search col-12 col-lg-auto mb-3 mb-lg-0" role="search">
+      <div class="search col-12 col-lg-auto mb-lg-0" role="search">
         <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
       </div>
+    </div>
+
+    <div class="container d-flex justify-content-between align-items-center pb-3">
+      <div class="btn-group d-flex align-items-center mb-3 mb-lg-0 me-lg-auto">
+        <button class="category-status btn btn-light active" data-category="all">전체</button>
+        <button class="category-status btn btn-light" data-category="마감">마감</button>
+        <button class="category-status btn btn-light" data-category="진행중">진행중</button>
+        <button class="category-status btn btn-light" data-category="예정">예정</button>
+      </div>
+      <button type="button" class="apply btn btn-light" onclick="location.href='./html/apply.html'">행사 신청</button>
+    </div>
+
     </div>
     <div class="album">
       <div class="container">
         <div class="d-flex justify-content-between align-items-center pb-3">
           <div>총 <strong id="item-count"></strong>건</div>
-          <button type="button" class="apply btn btn-light" onclick="location.href='./html/apply.html'">참가 신청</button>
         </div>
         <ul class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
