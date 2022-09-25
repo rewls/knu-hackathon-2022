@@ -86,15 +86,18 @@ function setdata() {
                   <div class="card-body p-6">
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="status btn-group btn-group-sm btn-border-radius-sm" role="group" aria-label="status">
-                        <button type="button" class="btn btn-danger" style="--bs-btn-border-radius: .7rem;">${status(data.val().Start_date, data.val().End_date)}</button>
+                        <button type="button" class="btn btn-light btn-gray" style="--bs-btn-border-radius: .7rem;">${data.val().EventType}</button>
+                        <button type="button" class="btn btn-warning" style="--bs-btn-border-radius: .7rem;">${status(data.val().Start_date, data.val().End_date)}</button>
                       </div>
-                      <div class="small text-muted text-end">
+                    </div>
+                    <div class="card-text">
+                      <div class="fs-6 text-muted pt-3">${data.val().InputOrganizer}</div>
+                      <div class="fs-5 pb-2 fw-bold">${data.val().InputName}</div>
+                      <div class="small text-muted">
                         <date class="start-date">${data.val().Start_date}</date>
                         ~&nbsp;<date class="end-date">${data.val().End_date}</date>
                       </div>
                     </div>
-                    <div class="fs-6 text-muted pt-3">${data.val().InputOrganizer}</div>
-                    <p class="card-text fs-5 fw-bold">${data.val().InputName}</p>
                   </div>
                 </div>
               </a>
