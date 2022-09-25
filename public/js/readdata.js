@@ -69,7 +69,7 @@ function setdata() {
     count++;
       var templete = `
       <li class="item ${data.val().EventType} col pb-3">
-              <a href=../html/page.html id = '${data.key}'>
+              <a href=./html/page.html id = '${data.key}'>
                 <div class="card shadow-sm zoom">
                   <img class="bd-placeholder-img card-img-top" src="${data.val().ImgUrl}" width="100%">
                   <div class="card-body p-6">
@@ -90,7 +90,6 @@ function setdata() {
             </li>
             <script>
               document.getElementById('${data.key}').addEventListener('click', () => {
-                alert('${data.key}')
 
                 localStorage.setItem("key", "${data.key}");
 
