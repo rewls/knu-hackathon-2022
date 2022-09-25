@@ -15,3 +15,4 @@ function init(){
   var app = firebase.initializeApp(firebaseConfig);
   firebase.analytics();
 }
+

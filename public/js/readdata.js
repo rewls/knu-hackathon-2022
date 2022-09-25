@@ -31,11 +31,11 @@ function setdata() {
 
   DB.on('child_added', function(data){
     console.log(data.val())
-    //alert(JSON.stringify(data.val(), null, 3))
+    
 
       var templete = `
       <li class="item ${data.val().EventType} col pb-3">
-              <a href="https://exco.co.kr/schedule/schedule_view.html?code=P_AGPV56306&ex_cate=1">
+              <a href=../html/page.html id = '${data.key}'>
                 <div class="card shadow-sm zoom">
                   <img class="bd-placeholder-img card-img-top" src="${data.val().ImgUrl}" width="100%">
                   <div class="card-body">
@@ -51,10 +51,16 @@ function setdata() {
                 </div>
               </a>
             </li>
+            <script>
+              document.getElementById('${data.key}').addEventListener('click', () => {
+                alert('${data.key}')
+                
+                localStorage.setItem("key", "${data.key}");
+                
+              });
+            </script>
             `;
     $('.col1').before(templete)
-
-
 })
 
 
