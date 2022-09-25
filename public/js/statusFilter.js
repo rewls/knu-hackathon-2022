@@ -1,5 +1,5 @@
-function start() {
-  const categories = document.querySelectorAll(".category");
+function startStatusFilter() {
+  const categories = document.querySelectorAll(".category-status");
   const item_count = document.getElementById("item-count");
   let items = document.querySelectorAll(".item");
   let count;
@@ -7,7 +7,7 @@ function start() {
   categories.forEach(category => category.addEventListener("click", (event) => {
     event.preventDefault();
     const filter = event.target.dataset.category;
-    const cats = document.querySelectorAll(".category");
+    const cats = document.querySelectorAll(".category-status");
     items = document.querySelectorAll(".item");
     count = 0;
 
@@ -36,4 +36,4 @@ function start() {
   )
 }
 
-start();
+startStatusFilter();

@@ -53,6 +53,17 @@ function status(start_date, end_date) {
   }
 }
 
+function filterStatus(start_date, end_date) {
+  switch (isOngoing(start_date,end_date)) {
+    case 0:
+      return "마감";
+    case 1:
+      return "진행중";
+    case 2:
+      return "예정";
+  }
+}
+
 function setdata() {
 
   //alert("전송 완료");
@@ -68,7 +79,7 @@ function setdata() {
 
     count++;
       var templete = `
-      <li class="item ${data.val().EventType} col pb-3">
+      <li class="item ${data.val().EventType} ${filterStatus(data.val().Start_date, data.val().End_date)} col pb-3">
               <a href=../html/page.html id = '${data.key}'>
                 <div class="card shadow-sm zoom">
                   <img class="bd-placeholder-img card-img-top" src="${data.val().ImgUrl}" width="100%">
